@@ -40,7 +40,7 @@ class Lotto {
 
   saveBudget(input) {
     ExceptionHandler.isNotaNumber(input);
-    ExceptionHandler.budgetUnit(input);
+    ExceptionHandler.validateBudgetRange(input);
 
     this.budget.budget = parseInt(input);
     this.budget.divideBudget(input);

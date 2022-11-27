@@ -1,7 +1,7 @@
 const Constant = require("./Constant");
 
 const ExceptionHandler = {
-  budgetUnit(budget) {
+  validateBudgetRange(budget) {
     if (parseInt(budget) < 1000) throw new Error("[ERROR] 최소 천원 이상 입력해주세요");
   },
 
