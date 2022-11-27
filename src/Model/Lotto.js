@@ -1,9 +1,9 @@
-const View = require("./View");
-const Message = require("./Message");
-const AutoLotto = require("./AutoLotto");
+const View = require("../View/View");
+const Message = require("../utils/Message");
+const AutoLottoGenerator = require("../AutoLottoGenerator");
 const Budget = require("./Budget");
-const Constant = require("./constant/Constant");
-const ExceptionHandler = require("./ExceptionHandler");
+const Constant = require("../utils/Constant");
+const ExceptionHandler = require("../utils/ExceptionHandler");
 const Prize = require("./Prize");
 
 class Lotto {
@@ -16,8 +16,8 @@ class Lotto {
     this.winningCount = 0;
     this.prize = new Prize();
 
+    this.autoLottoArray;
     this.budget = new Budget();
-    this.autoLotto = new AutoLotto();
   }
 
   // Entry
@@ -56,7 +56,7 @@ class Lotto {
   }
 
   makeAutoLotto(count) {
-    this.autoLotto.makeRandomLottoArray(count);
+    this.autoLottoArray = AutoLottoGenerator.makeRandomLottoArray(count);
   }
 
   autoLottoArraytoString(array) {
@@ -65,7 +65,7 @@ class Lotto {
   }
 
   printAutoLotto() {
-    this.autoLotto.randomLottoArray.forEach((array) => {
+    this.autoLottoArray.forEach((array) => {
       View.output(this.autoLottoArraytoString(array));
     });
   }
@@ -104,7 +104,7 @@ class Lotto {
 
   // 당첨 확인
   checkWins() {
-    this.autoLotto.randomLottoArray.forEach((array) => {
+    this.autoLottoArray.forEach((array) => {
       this.checkPrize(array, this.numbers);
     });
     this.printWinningStats();

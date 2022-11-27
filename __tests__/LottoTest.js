@@ -1,7 +1,7 @@
-const Budget = require("../src/Budget");
-const AutoLotto = require("../src/AutoLotto");
-const Lotto = require("../src/Lotto");
-const ExceptionHandler = require("../src/ExceptionHandler");
+const Budget = require("../src/Model/Budget");
+const AutoLottoGenerator = require("../src/AutoLottoGenerator");
+const Lotto = require("../src/Model/Lotto");
+const ExceptionHandler = require("../src/utils/ExceptionHandler");
 
 describe("로또 클래스 테스트", () => {
   test("로또 번호의 개수가 6개가 넘어가면 예외가 발생한다.", () => {
@@ -24,9 +24,7 @@ describe("로또 클래스 테스트", () => {
   });
 
   test("중복이 없는 자동 로또를 생성한다.", () => {
-    const autoLotto = new AutoLotto();
-    autoLotto.makeRandomLottoArray(1);
-    const testSet = new Set(autoLotto.randomLottoArray[0]);
+    const testSet = new Set(...AutoLottoGenerator.makeRandomLottoArray(1));
     expect([...testSet].length).toBe(6);
   });
 

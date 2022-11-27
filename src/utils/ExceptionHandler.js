@@ -1,8 +1,8 @@
-const Constant = require("../src/constant/Constant");
+const Constant = require("./Constant");
 
 const ExceptionHandler = {
   budgetUnit(budget) {
-    if (parseInt(budget) % 1000 !== 0) throw new Error("[ERROR] 단위를 정확히 입력해주세요.");
+    if (parseInt(budget) < 1000) throw new Error("[ERROR] 최소 천원 이상 입력해주세요");
   },
 
   winningNumberLength(winningNumber) {

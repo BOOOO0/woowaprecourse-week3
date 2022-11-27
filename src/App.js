@@ -1,4 +1,4 @@
-const Lotto = require("./Lotto");
+const Lotto = require("./Model/Lotto");
 
 class App {
   constructor() {

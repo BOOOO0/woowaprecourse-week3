@@ -1,4 +1,4 @@
-const { THOUSAND } = require("./constant/Constant");
+const { THOUSAND } = require("../utils/Constant");
 
 class Budget {
   constructor(count) {
