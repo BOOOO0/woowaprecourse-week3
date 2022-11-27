@@ -1,17 +1,17 @@
 const { Console } = require("@woowacourse/mission-utils");
 
-class View {
-  static input(message, callback) {
+const View = {
+  input(message, callback) {
     Console.readLine(message, callback);
-  }
+  },
 
-  static output(output) {
+  output(output) {
     Console.print(output);
-  }
+  },
 
-  static close() {
+  close() {
     Console.close();
-  }
-}
+  },
+};
 
 module.exports = View;
